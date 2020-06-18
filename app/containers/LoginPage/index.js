@@ -8,20 +8,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
+import { Button, Form } from 'react-bootstrap';
 import makeSelectLoginPage from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import messages from './messages';
+// import messages from './messages';
 
-import { Button, Form, } from 'react-bootstrap';
-
-//all imports of primereacts
+// all imports of primereacts
 
 /* eslint-disable react/prefer-stateless-function */
 export class LoginPage extends React.Component {
@@ -42,7 +41,6 @@ export class LoginPage extends React.Component {
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         <Button variant="primary">Login</Button>
-
       </div>
     );
   }
@@ -59,6 +57,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     dispatch,
+    onChangeUserName: () => {},
   };
 }
 

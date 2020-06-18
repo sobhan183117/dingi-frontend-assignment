@@ -12,7 +12,7 @@ import messages from './messages';
 export default function NotFound() {
   return (
     <article>
-        <FormattedMessage {...messages.header} />
+      <FormattedMessage {...messages.header} />
     </article>
   );
 }
