@@ -12,6 +12,7 @@ import styled from 'styled-components';
 import { Switch, Route } from 'react-router-dom';
 
 import LoginPage from 'containers/LoginPage';
+import HomePage from 'containers/HomePage';
 
 import NotFoundPage from 'containers/NotFoundPage';
 
@@ -38,6 +39,7 @@ export default function App() {
 
       <Switch>
         <Route path="/login" component={LoginPage} />
+        <Route path="/home_page" component={HomePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
 
