@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.header-wrapper {
+  background: #002749;
+}
+.header-wrapper .logo-wrapper {
+  height: 50px;
+  width: 75px;
+  background: #fff;
+}
+.header-wrapper .logo-wrapper img {
+  height: 50px;
+  width: 75px;
+}
+.header-wrapper .inst-title-wrapper {
+  margin-top: 15px;
+}
+.header-wrapper .inst-title-wrapper .ins-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+}
+.header-wrapper .inst-title-wrapper address {
+  font-size: 18x;
+  color: #fff;
+  margin-bottom: 0;
+}
+.header-wrapper .inst-title-wrapper span {
+  font-size: 18x;
+  color: #fff;
+}
+.header-wrapper .social-wrapper {
+  margin-top: 20px;
+}
+.header-wrapper .social-wrapper li {
+  list-style: none;
+  padding-right: 15px;
+}
+.header-wrapper .social-wrapper li:last-child {
+  padding-right: 0px;
+}
+.header-wrapper .social-wrapper li:first-child:hover a {
+  color: #0084ff;
+}
+.header-wrapper .social-wrapper li:nth-child(n+2):hover a {
+  color: #00acee;
+}
+.header-wrapper .social-wrapper li:nth-child(n+3):hover a {
+  color: #FF0000;
+}
+.header-wrapper .social-wrapper li:last-child:hover a {
+  color: #0077b5;
+}
+.header-wrapper .social-wrapper a {
+  color: #fff;
+}
+.header-wrapper .calender-wrapper-top .calender-icon {
+  padding-right: 15px;
+  margin-bottom: 10px;
+}
+.header-wrapper .calender-wrapper-top .calender-icon i {
+  font-size: 50px;
+  color: #fff;
+}
+.header-wrapper .calender-wrapper-top .calender-details {
+  text-align: left;
+}
+.header-wrapper .calender-wrapper-top .calender-details span {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.8;
+  display: block;
+}
+@media screen and (min-width: 767px) {
+  .header-wrapper .inst-title-wrapper {
+    margin-left: 15px;
+    margin-top: 0px;
+  }
+  .header-wrapper .social-wrapper {
+    margin-top: 0px;
+  }
+  .header-wrapper .calender-details {
+    text-align: right !important;
+    width: 100%;
+  }
+  .header-wrapper .calender-icon {
+    text-align: right;
+    border-right: 2px solid #4d6880;
+    margin-bottom: 0px;
+  }
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+/*# sourceMappingURL=global.css.map */

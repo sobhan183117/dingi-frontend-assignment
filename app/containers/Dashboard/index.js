@@ -1,6 +1,6 @@
 /**
  *
- * HomePage
+ * Dashboard
  *
  */
 
@@ -14,27 +14,32 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectHomePage from './selectors';
+import makeSelectDashboard from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import { Header } from '../Header';
-// import messages from './messages';
+import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
-export class HomePage extends React.Component {
+export class Dashboard extends React.Component {
   render() {
     return (
-      <div><Header /></div >
+      <div>
+        <Helmet>
+          <title>Dashboard</title>
+          <meta name="description" content="Description of Dashboard" />
+        </Helmet>
+        <FormattedMessage {...messages.header} />
+      </div>
     );
   }
 }
 
-HomePage.propTypes = {
+Dashboard.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  homePage: makeSelectHomePage(),
+  dashboard: makeSelectDashboard(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -48,11 +53,11 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'homePage', reducer });
-const withSaga = injectSaga({ key: 'homePage', saga });
+const withReducer = injectReducer({ key: 'dashboard', reducer });
+const withSaga = injectSaga({ key: 'dashboard', saga });
 
 export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(HomePage);
+)(Dashboard);

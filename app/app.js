@@ -16,6 +16,7 @@ import { ConnectedRouter } from 'connected-react-router/immutable';
 import FontFaceObserver from 'fontfaceobserver';
 import history from 'utils/history';
 
+import './assets/scss/global.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // import 'sanitize.css/sanitize.css';

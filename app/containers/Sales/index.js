@@ -1,6 +1,6 @@
 /**
  *
- * HomePage
+ * Sales
  *
  */
 
@@ -14,27 +14,32 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import makeSelectHomePage from './selectors';
+import makeSelectSales from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import { Header } from '../Header';
-// import messages from './messages';
+import messages from './messages';
 
 /* eslint-disable react/prefer-stateless-function */
-export class HomePage extends React.Component {
+export class Sales extends React.Component {
   render() {
     return (
-      <div><Header /></div >
+      <div>
+        <Helmet>
+          <title>Sales</title>
+          <meta name="description" content="Description of Sales" />
+        </Helmet>
+        <FormattedMessage {...messages.header} />
+      </div>
     );
   }
 }
 
-HomePage.propTypes = {
+Sales.propTypes = {
   dispatch: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = createStructuredSelector({
-  homePage: makeSelectHomePage(),
+  sales: makeSelectSales(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -48,11 +53,11 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-const withReducer = injectReducer({ key: 'homePage', reducer });
-const withSaga = injectSaga({ key: 'homePage', saga });
+const withReducer = injectReducer({ key: 'sales', reducer });
+const withSaga = injectSaga({ key: 'sales', saga });
 
 export default compose(
   withReducer,
   withSaga,
   withConnect,
-)(HomePage);
+)(Sales);

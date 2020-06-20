@@ -9,25 +9,38 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import LoginPage from 'containers/LoginPage';
 import HomePage from 'containers/HomePage';
 
+import Dashboard from 'containers/Dashboard';
+import ItemList from 'containers/ItemList';
+
 import NotFoundPage from 'containers/NotFoundPage';
 
 import GlobalStyle from '../../global-styles';
+import { getToken, getAuthenticatedStatus } from '../../utils/authHelper';
+import PrivateRoute from '../../components/PrivateRoute';
+import AppRoute from '../AppRoute';
 
 const AppWrapper = styled.div`
-  max-width: calc(768px + 16px * 2);
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   min-height: 100%;
-  padding: 0 16px;
+  padding: 0 auto;
   flex-direction: column;
 `;
 
 export default function App() {
+
+  const token = JSON.parse(getToken());
+  console.log('app-token', token);
+
+  let authenticatedStatus = getAuthenticatedStatus();
+  console.log('app-authenticatedStatus', authenticatedStatus);
+
   return (
     <AppWrapper>
       <Helmet
@@ -37,11 +50,7 @@ export default function App() {
         <meta name="description" content="A React.js Boilerplate application" />
       </Helmet>
 
-      <Switch>
-        <Route path="/login" component={LoginPage} />
-        <Route path="/home_page" component={HomePage} />
-        <Route path="" component={NotFoundPage} />
-      </Switch>
+      <AppRoute isAuthenticated={getAuthenticatedStatus()} />
 
       <GlobalStyle />
     </AppWrapper>
