@@ -23,7 +23,7 @@ const PrivateRoute=({  component: Component,  isAuthenticated, ...rest }) =>{
    render={props => (
     isAuthenticated? <Component {...props} />
      :
-      <Redirect to="/login" /> 
+      <Redirect to="" /> 
    
       // restricted.length == allowed.length ?
       // <Redirect

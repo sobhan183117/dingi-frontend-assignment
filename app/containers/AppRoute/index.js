@@ -23,7 +23,7 @@ class AppRoute extends Component {
     return (
       <div>
         <Switch>
-          <Route exact path="/login" component={LoginPage} />
+          <Route exact path="" component={LoginPage} />
           <PrivateRoute exact path='/home' exact component={HomePage} isAuthenticated={this.props.isAuthenticated} />
           <PrivateRoute exact path='/dashboard' exact component={Dashboard} isAuthenticated={this.props.isAuthenticated} />
 
