@@ -18,17 +18,24 @@ import makeSelectItemList from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 import messages from './messages';
+import { Header } from '../Header';
 
 /* eslint-disable react/prefer-stateless-function */
 export class ItemList extends React.Component {
   render() {
     return (
       <div>
-        <Helmet>
-          <title>ItemList</title>
-          <meta name="description" content="Description of ItemList" />
-        </Helmet>
-        <FormattedMessage {...messages.header} />
+        <Header />
+
+        <div className="container fluid">
+          <div className="container">
+            <div className="row">
+              <div className='col-md-12'>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

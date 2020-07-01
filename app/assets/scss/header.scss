@@ -9,23 +9,6 @@
             width: 75px;
         }
     }
-    .inst-title-wrapper{
-        margin-top: 15px;
-        .ins-title{
-            font-size: 24px;
-            font-weight: 600;
-            color: $colorWhite;
-        }
-        address{
-            font-size: 18x;
-            color: $colorWhite;
-            margin-bottom: 0;
-        }
-        span{
-            font-size: 18x;
-            color: $colorWhite;
-        }
-    }
     .social-wrapper{
         margin-top: 20px;
         li{
@@ -60,45 +43,14 @@
             color: $colorWhite;
         }
     }
-    .calender-wrapper-top{
-        .calender-icon{
-            i{
-                font-size: 50px;
-                color: $colorWhite;
-            }
-            padding-right: 15px;
-            margin-bottom: 10px;
-            
-        }
-        .calender-details{
-            text-align: left;
-            span{
-                color: $colorWhite;
-                font-size: 15px;
-                line-height: 1.8;
-                display: block;
-            }
-        }
-    }
-    @media screen and (min-width:767px){
-        .inst-title-wrapper{
-            margin-left: 15px;
-            margin-top: 0px;
-        }
-        .social-wrapper{
-            margin-top: 0px;
-        }
-        .calender-details{
-            text-align: right !important;
-            width: 100%;
-        }
-        .calender-icon{
-            text-align: right;
-            border-right: 2px solid #4d6880;
-            margin-bottom: 0px;
-        }
-    }
+
+}
+.p-0{
+    padding: 0;
 }
 .m-t-10{
     margin-top: 10px;
+}
+.m-t-100{
+    margin-top: 100px;
 }

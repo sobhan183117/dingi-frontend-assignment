@@ -30,7 +30,7 @@ export function* submitLoginForm() {
         // console.log(response);
         setAuthenticatedStatus(true);
         setToken(JSON.stringify(response.data.jwt_token));
-        window.location.href = '';
+        window.location.href = '/home';
       }
     })
     .catch(error => {

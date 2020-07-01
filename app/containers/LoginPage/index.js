@@ -50,52 +50,65 @@ export class LoginPage extends React.Component {
   render() {
     return (
       <div>
-        <Helmet>
-          <title>LoginPage</title>
-          <meta name="description" content="Description of LoginPage" />
-        </Helmet>
+        <div className="container fluid">
+          <div className="container">
+            <div className="row">
 
-        <Form
-          noValidate
-          validated={this.state.validated}
-          onSubmit={this.handleSubmit}
-        >
-          <Form.Group controlId="formBasicUserName">
-            <Form.Label>User Name</Form.Label>
-            <InputGroup>
-              <Form.Control
-                type="text"
-                required
-                placeholder="User Name"
-                value={this.props.userName}
-                onChange={this.props.onChangeUserName}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please choose a username.
+              <div className='col-md-3' />
+
+              <div className='col-md-6'>
+                <div className='m-t-100'>
+
+                  <Form
+                    noValidate
+                    validated={this.state.validated}
+                    onSubmit={this.handleSubmit}
+                  >
+                    <Form.Group controlId="formBasicUserName">
+                      <Form.Label>User Name</Form.Label>
+                      <InputGroup>
+                        <Form.Control
+                          type="text"
+                          required
+                          placeholder="User Name"
+                          value={this.props.userName}
+                          onChange={this.props.onChangeUserName}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          Please choose a username.
               </Form.Control.Feedback>
-            </InputGroup>
-          </Form.Group>
+                      </InputGroup>
+                    </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <InputGroup>
-              <Form.Control
-                type="password"
-                required
-                placeholder="Password"
-                value={this.props.password}
-                onChange={this.props.onChangePassword}
-              />
-              <Form.Control.Feedback type="invalid">
-                Please choose a password.
+                    <Form.Group controlId="formBasicPassword">
+                      <Form.Label>Password</Form.Label>
+                      <InputGroup>
+                        <Form.Control
+                          type="password"
+                          required
+                          placeholder="Password"
+                          value={this.props.password}
+                          onChange={this.props.onChangePassword}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                          Please choose a password.
               </Form.Control.Feedback>
-            </InputGroup>
-          </Form.Group>
+                      </InputGroup>
+                    </Form.Group>
 
-          <Button type="submit" variant="primary">
-            Login
+                    <Button type="submit" variant="primary" >
+                      Login
           </Button>
-        </Form>
+                  </Form>
+                </div>
+
+              </div>
+              <div className='col-md-3' />
+
+            </div>
+          </div>
+
+        </div>
       </div>
     );
   }

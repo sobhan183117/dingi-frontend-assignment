@@ -10,29 +10,29 @@ import React from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import { Navbar, Nav, NavbarBrand, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
 
 /* eslint-disable react/prefer-stateless-function */
 class Sidebar extends React.Component {
   render() {
+
+    let sidebarItemList = [];
+    if (!this.props.sidebarItems == '') {
+      sidebarItemList = this.props.sidebarItems;
+    }
+
     return (
       <div>
-        <div className="container-fluid">
-          <div className="container">
-            <div className="row">
-              <div className="col-md-4">
-                <ul className="nav-item-list">
-                  <li>
-                    <i className="fas fa-angle-right" /> Class One
-                        </li>
-                  <li>
-                    <i className="fas fa-angle-right" /> Class One
-                        </li>
-                </ul>
-              </div>
 
-            </div>
-          </div>
+        <div className='sidebar-wrapper'>
+          <Nav className="flex-column">
+            {sidebarItemList.map(sidebarItem => (
+              <Nav.Link key={sidebarItem.key} href={sidebarItem.value}>{sidebarItem.label}</Nav.Link>
+            ))}
+
+          </Nav>
         </div>
+
       </div>
     );
   }

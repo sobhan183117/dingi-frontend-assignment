@@ -21,10 +21,20 @@ import saga from './saga';
 import logo from '../../assets/img/dingiLogo.png';
 import { setToken, setAuthenticatedStatus } from '../../utils/authHelper';
 import { submitLogout } from './actions';
-import {Redirect, Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
+
+import { Navbar, Nav, NavbarBrand, NavDropdown, Form, Button, FormControl } from 'react-bootstrap';
 
 /* eslint-disable react/prefer-stateless-function */
 export class Header extends React.Component {
+
+  static defaultProps = {
+    history: null
+  }
+
+  static propTypes = {
+    history: PropTypes.object
+  }
 
   constructor(props) {
     super();
@@ -35,7 +45,12 @@ export class Header extends React.Component {
     console.log('logout pressed');
 
     setAuthenticatedStatus(false);
-    setToken(JSON.stringify({}));
+    localStorage.removeItem('token');
+
+    // localStorage.clear();
+    // setToken(JSON.stringify({}));
+    // this.props.history.replace('/login')
+
     window.location.replace('/login');
 
   }
@@ -48,25 +63,23 @@ export class Header extends React.Component {
             <div className="container">
               <div className="row">
 
-                <div className="col-md-6">
-
-                  <div className="d-flex flex-row">
-                    <div className="p-2 text-secondary align-self-center">
-                      <div className="logo-wrapper d-block"><img src={logo} /></div>
-                    </div>
-                    <div className="p-2 text-secondary align-self-center"><span></span>Dashboard</div>
-                    <div className="p-2 text-secondary align-self-center">Item List</div>
-                  </div>
+                <div className='col-md-12 p-0'>
+                  <Navbar bg="light" expand="lg">
+                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                      <Nav className="mr-auto">
+                        <Nav.Link href="dashboard">Dashboard</Nav.Link>
+                        <Nav.Link href="item_list">Item List</Nav.Link>
+                      </Nav>
+                      <Form inline>
+                        <Nav onSelect={(selectedKey) => this.logoutSubmit(selectedKey)}>
+                          <Nav.Link eventKey='logout' >Logout</Nav.Link>
+                        </Nav>
+                      </Form>
+                    </Navbar.Collapse>
+                  </Navbar>
                 </div>
-
-                <div className="col-md-6">
-                  <div className="d-flex flex-row  justify-content-end ">
-                    <div className="p-2 text-secondary align-self-center m-t-10">
-                      <span style={{ color: "#0078ff", cursor: "pointer" }} onClick={this.logoutSubmit} >Logout</span>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>

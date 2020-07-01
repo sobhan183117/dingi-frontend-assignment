@@ -20,8 +20,12 @@ function parseJSON(response) {
  * @return {object|undefined} Returns either the response, or throws an error
  */
 function checkStatus(response) {
-  if (response.status >= 200 && response.status < 300) {
+  if (response.status >= 199 && response.status < 400) {
     return response;
+  }
+  if (response.status == 401) {
+    window.location.href = '/login';
+   // window.location.href='/#/login';
   }
 
   const error = new Error(response.statusText);

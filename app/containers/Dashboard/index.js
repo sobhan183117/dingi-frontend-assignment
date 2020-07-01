@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { FormattedMessage } from 'react-intl';
+// import { FormattedMessage } from 'react-intl';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
@@ -17,18 +17,36 @@ import injectReducer from 'utils/injectReducer';
 import makeSelectDashboard from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import messages from './messages';
+import { Header } from '../Header';
+import Sidebar from '../../components/Sidebar';
 
 /* eslint-disable react/prefer-stateless-function */
 export class Dashboard extends React.Component {
+
   render() {
+
+    let sidebarItems = [
+      { label: 'Sales', value: '/sales' },
+      { label: 'Customer', value: '/customer' },
+    ]
+
     return (
       <div>
-        <Helmet>
-          <title>Dashboard</title>
-          <meta name="description" content="Description of Dashboard" />
-        </Helmet>
-        <FormattedMessage {...messages.header} />
+
+        <Header />
+
+        <div className="container fluid">
+          <div className="container">
+            <div className="row">
+
+              <div className='col-md-3 p-0'><Sidebar sidebarItems={sidebarItems} /></div>
+              <div className='col-md-9 '>
+                <div className='page-content-wrapper'></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

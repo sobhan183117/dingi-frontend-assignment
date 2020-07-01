@@ -11,6 +11,12 @@ const selectSalesDomain = state => state.get('sales', initialState);
  * Other specific selectors
  */
 
+const makeSelectBarChartData = () =>
+  createSelector(selectSalesDomain, substate => substate.get('barChartData'));
+
+const makeSelectPieChartData = () =>
+  createSelector(selectSalesDomain, substate => substate.get('pieChartData'));
+
 /**
  * Default selector used by Sales
  */
@@ -19,4 +25,8 @@ const makeSelectSales = () =>
   createSelector(selectSalesDomain, substate => substate.toJS());
 
 export default makeSelectSales;
-export { selectSalesDomain };
+export {
+  selectSalesDomain,
+  makeSelectBarChartData,
+  makeSelectPieChartData
+};
