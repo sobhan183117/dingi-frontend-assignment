@@ -5,11 +5,12 @@
  */
 
 import { fromJS } from 'immutable';
-import { DEFAULT_ACTION, SET_USER_NAME, SET_PASSWORD } from './constants';
+import { DEFAULT_ACTION, SET_USER_NAME, SET_PASSWORD, SET_AUTH_STATUS } from './constants';
 
 export const initialState = fromJS({
   userName: '',
   password: '',
+  authStatus: false,
 });
 
 function loginPageReducer(state = initialState, action) {
@@ -22,6 +23,9 @@ function loginPageReducer(state = initialState, action) {
 
     case SET_PASSWORD:
       return state.set('password', action.password);
+
+    case SET_AUTH_STATUS:
+      return state.set('authStatus', action.authStatus);
 
     default:
       return state;

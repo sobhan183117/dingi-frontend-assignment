@@ -12,19 +12,99 @@ import { setBarChartData, setPieChartData } from './actions';
 
 export function* fetchSalesData() {
 
-  const tokenData = JSON.parse(getToken());
+  // const tokenData = JSON.parse(getToken());
 
-  const requestURL = BASE_URL + FETCH_USER_DATA;
-  const options = {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'JWT ' + tokenData,
-    },
-  };
+  // const requestURL = BASE_URL + FETCH_USER_DATA;
+  // const options = {
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     'Authorization': 'JWT ' + tokenData,
+  //   },
+  // };
 
   try {
-    const response = yield call(request, requestURL, options);
+    // const response = yield call(request, requestURL, options);
+
+    const response = [
+      {
+        "id": 1,
+        "customer_name": "Abu Sufian",
+        "customer_work_area": "Dhaka",
+        "district": "Dhaka",
+        "date": "2020-07-24",
+        "product": "Eagle Cam",
+        "order_quantity": 23,
+        "created_at": "2020-07-24T13:58:23.000000Z",
+        "updated_at": "2020-07-24T13:58:23.000000Z"
+      },
+      {
+        "id": 2,
+        "customer_name": "Siam",
+        "customer_work_area": "Rangpur",
+        "district": "Rangpur",
+        "date": "2020-07-24",
+        "product": "Vechile Tracker",
+        "order_quantity": 55,
+        "created_at": "2020-07-24T17:32:12.000000Z",
+        "updated_at": "2020-07-24T17:32:12.000000Z"
+      },
+      {
+        "id": 3,
+        "customer_name": "Taju",
+        "customer_work_area": "Rangpur",
+        "district": "Rangpur",
+        "date": "2020-07-24",
+        "product": "Asset Lock",
+        "order_quantity": 15,
+        "created_at": "2020-07-24T17:34:14.000000Z",
+        "updated_at": "2020-06-24T17:34:14.000000Z"
+      },
+      {
+        "id": 4,
+        "customer_name": "Banna",
+        "customer_work_area": "Chittagong",
+        "district": "Chittagong",
+        "date": "2020-07-25",
+        "product": "Moto Tracker",
+        "order_quantity": 5,
+        "created_at": "2020-07-25T14:25:03.000000Z",
+        "updated_at": "2020-07-25T14:25:03.000000Z"
+      },
+      {
+        "id": 5,
+        "customer_name": "Rahul",
+        "customer_work_area": "Chittagong",
+        "district": "Chittagong",
+        "date": "2020-07-25",
+        "product": "Eagle Cam",
+        "order_quantity": 25,
+        "created_at": "2020-07-25T14:25:17.000000Z",
+        "updated_at": "2020-07-25T14:25:17.000000Z"
+      },
+      {
+        "id": 6,
+        "customer_name": "Name 5",
+        "customer_work_area": "GHI",
+        "district": "Sylhet",
+        "date": "2020-06-25",
+        "product": "Product 4",
+        "order_quantity": 25,
+        "created_at": "2020-06-25T14:25:37.000000Z",
+        "updated_at": "2020-06-25T14:25:37.000000Z"
+      },
+      {
+        "id": 7,
+        "customer_name": "Name 5",
+        "customer_work_area": "DHI",
+        "district": "Sylhet",
+        "date": "2020-07-01",
+        "product": "Product 5",
+        "order_quantity": 25,
+        "created_at": "2020-07-01T06:11:36.000000Z",
+        "updated_at": "2020-07-01T06:11:36.000000Z"
+      }
+    ]
     console.log('response', response);
 
     if (response) {
@@ -35,7 +115,7 @@ export function* fetchSalesData() {
 
       let pieChartLevelArr = []
       let pieChartDataArr = [];
-// [{date: '2020', product: 'Eagle Cam', }]
+      // [{date: '2020', product: 'Eagle Cam', }]
       mainSellProductList = response;
 
       mainSellProductList.filter(data => {
@@ -91,35 +171,35 @@ export function* fetchSalesData() {
 
       }
 
-      for (let x = 0; x < uniqueDistrictArr.length; x++) {
+      // for (let x = 0; x < uniqueDistrictArr.length; x++) {
 
-        for (let k = 1; k < 32; K++) {
+      //   for (let k = 1; k < 32; K++) {
 
-          let districtCount = 0;
+      //     let districtCount = 0;
 
-          for (let j = 0; j < currentMonthDataArr.length; j++) {
+      //     for (let j = 0; j < currentMonthDataArr.length; j++) {
 
-            let sellDate = new Date(currentMonthDataArr[j].date).getDate();
+      //       let sellDate = new Date(currentMonthDataArr[j].date).getDate();
 
-            if (K == sellDate && uniqueDistrictArr[x] == currentMonthDataArr[j].district) {
-              districtCount += currentMonthDataArr[j].district;
-            }
+      //       if (K == sellDate && uniqueDistrictArr[x] == currentMonthDataArr[j].district) {
+      //         districtCount += currentMonthDataArr[j].district;
+      //       }
 
-          }
+      //     }
 
-          // dataArray.push(districtCount);
+      //     // dataArray.push(districtCount);
 
-        }
+      //   }
 
-        // barChartDataArr.push(
-        //   {
-        //     label: uniqueDistrictArr[x],
-        //     backgroundColor: '#' + (Math.random().toString(16) + '00000').slice(2, 8),
-        //     data: dataArray
-        //   }
-        // );
+      //   // barChartDataArr.push(
+      //   //   {
+      //   //     label: uniqueDistrictArr[x],
+      //   //     backgroundColor: '#' + (Math.random().toString(16) + '00000').slice(2, 8),
+      //   //     data: dataArray
+      //   //   }
+      //   // );
 
-      }
+      // }
 
       yield put(setBarChartData({ barChartDataArr }));
       yield put(setPieChartData({ pieChartLevelArr, pieChartDataArr }));

@@ -14,12 +14,12 @@ import { compose } from 'redux';
 
 import injectSaga from 'utils/injectSaga';
 import injectReducer from 'utils/injectReducer';
-import { Button, Form, InputGroup } from 'react-bootstrap';
-import makeSelectLoginPage from './selectors';
+import { Button, Form, InputGroup, Container } from 'react-bootstrap';
+import makeSelectLoginPage, { makeSelectAuthStatus } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 // import messages from './messages';
-
+import { Redirect } from 'react-router-dom';
 import { setUserName, setPassword, submitLogin } from './actions';
 import { makeSelectUserName, makeSelectPassword } from './selectors';
 
@@ -48,10 +48,30 @@ export class LoginPage extends React.Component {
   };
 
   render() {
+
+    console.log('authStatus-Index', this.props.authStatus);
+
+    if (this.props.authStatus == true) {
+      console.log('auth-true');
+      const from = { pathname: "/home" };
+      return <Redirect to={from} />
+    }
+
     return (
       <div>
-        <div className="container fluid">
-          <div className="container">
+        <Container fluid className='remove-padding'>
+
+          <div className='login-body'>
+
+            <div className="login-panel">
+
+
+            </div>
+          </div>
+
+        </Container>
+
+        {/* <div className="container">
             <div className="row">
 
               <div className='col-md-3' />
@@ -106,9 +126,8 @@ export class LoginPage extends React.Component {
               <div className='col-md-3' />
 
             </div>
-          </div>
+          </div> */}
 
-        </div>
       </div>
     );
   }
@@ -129,6 +148,7 @@ const mapStateToProps = createStructuredSelector({
   loginPage: makeSelectLoginPage(),
   userName: makeSelectUserName(),
   password: makeSelectPassword(),
+  authStatus: makeSelectAuthStatus(),
 });
 
 function mapDispatchToProps(dispatch) {

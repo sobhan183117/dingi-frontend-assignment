@@ -15,6 +15,9 @@ const makeSelectUserName = () =>
 
 const makeSelectPassword = () =>
   createSelector(selectLoginPageDomain, substate => substate.get('password'));
+
+const makeSelectAuthStatus = () =>
+  createSelector(selectLoginPageDomain, substate => substate.get('authStatus'));
 /**
  * Default selector used by LoginPage
  */
@@ -23,4 +26,4 @@ const makeSelectLoginPage = () =>
   createSelector(selectLoginPageDomain, substate => substate.toJS());
 
 export default makeSelectLoginPage;
-export { selectLoginPageDomain, makeSelectUserName, makeSelectPassword };
+export { selectLoginPageDomain, makeSelectUserName, makeSelectPassword, makeSelectAuthStatus };

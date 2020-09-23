@@ -9,6 +9,7 @@ import {
   SET_USER_NAME,
   SET_PASSWORD,
   SUBMIT_LOGIN,
+  SET_AUTH_STATUS,
 } from './constants';
 
 export function defaultAction() {
@@ -28,6 +29,13 @@ export function setPassword(password) {
   return {
     type: SET_PASSWORD,
     password,
+  };
+}
+
+export function setAuthStatus(authStatus) {
+  return {
+    type: SET_AUTH_STATUS,
+    authStatus,
   };
 }
 

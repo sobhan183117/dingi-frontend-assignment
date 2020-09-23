@@ -68,6 +68,28 @@
   margin-right: -15px;
 }
 
+.remove-padding {
+  padding: 0px !important;
+}
+
+.login-body {
+  background: #e9ecef;
+  height: 100vh;
+  padding: 0px;
+  margin: 0px;
+}
+.login-body .login-panel {
+  width: 545px;
+  height: 410px;
+  background-color: #fafafa;
+  position: absolute;
+  padding: 0px;
+  left: 50%;
+  top: 50%;
+  margin-left: 282px;
+  margin-top: 232px;
+}
+
 * {
   font-family: "Montserrat", sans-serif;
 }
